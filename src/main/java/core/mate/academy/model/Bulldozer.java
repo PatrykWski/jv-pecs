@@ -7,6 +7,14 @@ package core.mate.academy.model;
 public class Bulldozer extends Machine {
     private String bulldozerName;
 
+    public String getBulldozerName() {
+        return bulldozerName;
+    }
+
+    public void setBulldozerName(String bulldozerName) {
+        this.bulldozerName = bulldozerName;
+    }
+
     public Bulldozer() {
         bulldozerName = "Przemek";
     }

@@ -9,6 +9,14 @@ import java.math.BigDecimal;
 public class Truck extends Machine {
     private BigDecimal costOfTheTruck;
 
+    public BigDecimal getCostOfTheTruck() {
+        return costOfTheTruck;
+    }
+
+    public void setCostOfTheTruck(BigDecimal costOfTheTruck) {
+        this.costOfTheTruck = costOfTheTruck;
+    }
+
     public Truck() {
         costOfTheTruck = new BigDecimal(12);
     }
