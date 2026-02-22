@@ -5,7 +5,10 @@ package core.mate.academy.model;
  * Do not remove no-args constructor
  */
 public class Bulldozer extends Machine {
+    private String bulldozerName;
+
     public Bulldozer() {
+        bulldozerName = "Przemek";
     }
 
     @Override
