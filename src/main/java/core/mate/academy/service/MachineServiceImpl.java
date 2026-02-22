@@ -5,38 +5,34 @@ import core.mate.academy.model.Excavator;
 import core.mate.academy.model.Machine;
 import core.mate.academy.model.Truck;
 import core.mate.academy.model.Workable;
-import java.util.ArrayList;
 import java.util.List;
 
-public class MachineServiceImpl implements MachineService {
+public class MachineServiceImpl<T extends Machine> implements MachineService<T> {
 
     @Override
-    public List<Machine> getAll(Class<? extends Machine> type) {
+    public List<T> getAll(Class<? extends T> type) {
         if (type == Bulldozer.class) {
-            List<Bulldozer> bulldozers = new BulldozerProducer().get();
-            return new ArrayList<>(bulldozers);
+            return (List<T>) new BulldozerProducer().get();
         }
         if (type == Truck.class) {
-            List<Truck> trucks = new TruckProducer().get();
-            return new ArrayList<>(trucks);
+            return (List<T>) new TruckProducer().get();
         }
         if (type == Excavator.class) {
-            List<Excavator> excavators = new ExcavatorProducer().get();
-            return new ArrayList<>(excavators);
+            return (List<T>) new ExcavatorProducer().get();
         }
         return List.of();
     }
 
     @Override
-    public void fill(List<? super Workable> machines, Workable value) {
+    public void fill(List<? super T> machines, T value) {
         for (int i = 0; i < machines.size(); i++) {
             machines.set(i, value);
         }
     }
 
     @Override
-    public void startWorking(List<? extends Workable> machines) {
-        for (Workable m : machines) {
+    public void startWorking(List<? extends T> machines) {
+        for (T m : machines) {
             m.doWork();
         }
     }
