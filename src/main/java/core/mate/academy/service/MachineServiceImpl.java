@@ -9,15 +9,19 @@ import java.util.List;
 public class MachineServiceImpl<T extends Machine> implements MachineService<T> {
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<T> getAll(Class<? extends T> type) {
         if (type == Bulldozer.class) {
-            return (List<T>) new BulldozerProducer().get();
+            BulldozerProducer bulldozerProducer = new BulldozerProducer();
+            return (List<T>) bulldozerProducer.get();
         }
         if (type == Truck.class) {
-            return (List<T>) new TruckProducer().get();
+            TruckProducer truckProducer = new TruckProducer();
+            return (List<T>) truckProducer.get();
         }
         if (type == Excavator.class) {
-            return (List<T>) new ExcavatorProducer().get();
+            ExcavatorProducer excavatorProducer = new ExcavatorProducer();
+            return (List<T>) excavatorProducer.get();
         }
         return List.of();
     }
