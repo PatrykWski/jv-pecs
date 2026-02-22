@@ -7,16 +7,16 @@ package core.mate.academy.model;
 public class Excavator extends Machine {
     private int maximumFloorNumbers;
 
+    public Excavator() {
+        maximumFloorNumbers = 2;
+    }
+
     public int getMaximumFloorNumbers() {
         return maximumFloorNumbers;
     }
 
     public void setMaximumFloorNumbers(int maximumFloorNumbers) {
         this.maximumFloorNumbers = maximumFloorNumbers;
-    }
-
-    public Excavator() {
-        maximumFloorNumbers = 2;
     }
 
     @Override
